@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Assignment 1</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1 Map</title>
+    <!-- Include ArcGIS API for JavaScript -->
+  
+    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css">
+    <script 
+ esriConfig.apiKey = AAPK4044da2402e24020aeac0cfb693bff32zps7AtTkDpD4SbfRlWrQP9D-cdpSI1vAtP27LyKc13DyaC-vXivXp_jRIT5KPgzo;           src="https://js.arcgis.com/4.26/"></script>
+    <style>
+        /* Add any custom CSS styles here */
+        html, body, #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for the map -->
+    <div id="viewDiv"></div>
+
+    <script>
+        // JavaScript code to create the map
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/widgets/Sketch",
+            "esri/widgets/Home"
+        ], function(Map, MapView, Sketch, Home)
+                {
+            // Create a new map
+            var map = new Map({
+                basemap: "streets-navigation-vector" // Change the basemap as needed
+              
+            });
+
+            // Create a new MapView
+            var view = new MapView({
+                container: "viewDiv", // Container id specified in the HTML
+                map: map,
+                center: [-118.805, 34.027], // Longitude, Latitude
+                zoom: 12 // Zoom level
+            });
+
+            // Add the Sketch widget to the view
+            var sketch = new Sketch({
+                view: view
+            });
+            view.ui.add(sketch, "top-right");
+
+            // Add the Home widget to the view
+            var homeWidget = new Home({
+                view: view
+            });
+            view.ui.add(homeWidget, "top-left");
+        });
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
